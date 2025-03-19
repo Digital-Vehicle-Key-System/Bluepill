@@ -1,0 +1,28 @@
+# Build artifacts
+Debug/
+Release/
+*.o
+*.d
+*.elf
+*.hex
+*.bin
+*.map
+*.lst
+*xml
+
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+~*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+
+# User-specific settings
+.vscode/
+.idea/
