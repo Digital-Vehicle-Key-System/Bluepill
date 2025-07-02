@@ -27,7 +27,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if(GPIO_Pin == GPIO_PIN_15)
 	{
-		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
 		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_14);
 		GPS_Req = GPS_READINGS_NOW;
 	}
@@ -58,6 +57,7 @@ void GPS_voidReading()
 
 	if(GPS_LiveReadings.ggastruct.isfixValid && GPS_LiveReadings.rmcstruct.isValid)
 	{
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, GPIO_PIN_SET);
 		GPS_LastFixReadings.gps_location = GPS_LiveReadings.ggastruct.location;
 		GPS_LastFixReadings.reading_time = GPS_LiveReadings.ggastruct.tim;
 		GPS_LastFixReadings.reading_date = GPS_LiveReadings.rmcstruct.date;
